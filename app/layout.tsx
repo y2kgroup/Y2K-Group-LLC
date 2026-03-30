@@ -14,6 +14,10 @@ export const metadata: Metadata = {
     icon: "/favicon.svg",
     apple: "/logo-icon.svg",
   },
+  // Vercel deployment
+  other: {
+    'deployed': '2025-03-30',
+  },
 };
 
 export default function RootLayout({
