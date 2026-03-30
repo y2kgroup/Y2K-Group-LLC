@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 100" fill="none">
+  <defs>
+    <linearGradient id="logoGradientDark" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0ea5e9;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#a855f7;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <!-- Logo Icon Background -->
+  <rect x="10" y="10" width="80" height="80" rx="20" fill="url(#logoGradientDark)"/>
+
+  <!-- Circuit Pattern -->
+  <g fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="1.5">
+    <circle cx="25" cy="25" r="2.5" fill="rgba(255,255,255,0.3)"/>
+    <circle cx="75" cy="25" r="2.5" fill="rgba(255,255,255,0.3)"/>
+    <circle cx="25" cy="75" r="2.5" fill="rgba(255,255,255,0.3)"/>
+    <circle cx="75" cy="75" r="2.5" fill="rgba(255,255,255,0.3)"/>
+
+    <path d="M25 25 L35 25 L40 30 L40 38"/>
+    <path d="M75 25 L65 25 L60 30 L60 38"/>
+    <path d="M25 75 L35 75 L40 70 L40 62"/>
+    <path d="M75 75 L65 75 L60 70 L60 62"/>
+  </g>
+
+  <!-- Server Stack -->
+  <g fill="white">
+    <rect x="32" y="28" width="36" height="10" rx="2.5"/>
+    <circle cx="36" cy="33" r="1.5" fill="#0ea5e9"/>
+    <circle cx="40" cy="33" r="1.5" fill="#a855f7"/>
+
+    <rect x="32" y="41" width="36" height="10" rx="2.5"/>
+    <circle cx="36" cy="46" r="1.5" fill="#0ea5e9"/>
+    <circle cx="40" cy="46" r="1.5" fill="#a855f7"/>
+
+    <rect x="32" y="54" width="36" height="10" rx="2.5"/>
+    <circle cx="36" cy="59" r="1.5" fill="#0ea5e9"/>
+    <circle cx="40" cy="59" r="1.5" fill="#a855f7"/>
+  </g>
+
+  <!-- Y2K Text in icon -->
+  <text x="50" y="82" font-family="Arial, sans-serif" font-size="10" font-weight="bold" text-anchor="middle" fill="white">Y2K</text>
+
+  <!-- Company Name (Dark Mode) -->
+  <text x="110" y="55" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="white">Y2K Group</text>
+  <text x="110" y="82" font-family="Arial, sans-serif" font-size="20" font-weight="600" fill="#cbd5e1" letter-spacing="4">LLC</text>
+</svg>
