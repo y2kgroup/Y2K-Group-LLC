@@ -96,10 +96,13 @@ export default function Footer() {
             © {currentYear} Y2K Group LLC. All rights reserved.
           </p>
           <div className="flex space-x-6 mt-4 md:mt-0">
-            <a href="#" className="text-gray-400 hover:text-white text-sm transition-colors">
+            <a href="/sms" className="text-gray-400 hover:text-white text-sm transition-colors">
+              SMS Terms
+            </a>
+            <a href="/privacy" className="text-gray-400 hover:text-white text-sm transition-colors">
               Privacy Policy
             </a>
-            <a href="#" className="text-gray-400 hover:text-white text-sm transition-colors">
+            <a href="/terms" className="text-gray-400 hover:text-white text-sm transition-colors">
               Terms of Service
             </a>
           </div>
