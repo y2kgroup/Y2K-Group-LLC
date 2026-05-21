@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { Send, Mail, Phone, MapPin, Clock, CheckCircle2, AlertCircle, Loader2 } from "lucide-react";
 import { useState } from "react";
+import Link from "next/link";
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -11,7 +12,8 @@ export default function Contact() {
     company: "",
     phone: "",
     service: "",
-    message: ""
+    message: "",
+    smsConsent: false
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle");
@@ -39,6 +41,7 @@ export default function Contact() {
           phone: formData.phone,
           service: formData.service,
           message: formData.message,
+          sms_consent: formData.smsConsent,
         }),
       });
 
@@ -52,7 +55,8 @@ export default function Contact() {
           company: "",
           phone: "",
           service: "",
-          message: ""
+          message: "",
+          smsConsent: false
         });
       } else {
         setSubmitStatus("error");
@@ -273,6 +277,32 @@ export default function Contact() {
                 ></textarea>
               </div>
 
+              {/* SMS Opt-in Checkbox */}
+              <div className="mb-6 p-4 bg-gray-50 rounded-xl border border-gray-200">
+                <label className="flex items-start gap-3 cursor-pointer">
+                  <input
+                    type="checkbox"
+                    name="smsConsent"
+                    checked={formData.smsConsent}
+                    onChange={(e) => setFormData({ ...formData, smsConsent: e.target.checked })}
+                    disabled={!formData.phone.trim()}
+                    className="mt-1 w-5 h-5 text-primary-600 border-gray-300 rounded focus:ring-primary-500 disabled:opacity-50 disabled:cursor-not-allowed"
+                  />
+                  <span className={`text-sm ${!formData.phone.trim() ? 'text-gray-400' : 'text-gray-600'}`}>
+                    I agree to receive SMS text messages from Y2K Group LLC related to my inquiry, scheduling, support, and service updates. Message frequency varies. Message and data rates may apply. Reply STOP to opt out, HELP for help. By checking this box, I accept the{" "}
+                    <Link href="/sms" className="text-blue-500 underline hover:text-blue-600">SMS Terms</Link>
+                    {" "}and{" "}
+                    <Link href="/privacy" className="text-blue-500 underline hover:text-blue-600">Privacy Policy</Link>
+                    .
+                  </span>
+                </label>
+                {!formData.phone.trim() && (
+                  <p className="text-xs text-gray-400 mt-2 ml-8">
+                    Enter a phone number above to enable SMS opt-in
+                  </p>
+                )}
+              </div>
+
               <button
                 type="submit"
                 disabled={isSubmitting}
@@ -320,7 +350,13 @@ export default function Contact() {
               )}
 
               <p className="text-sm text-gray-500 mt-4 text-center">
-                By submitting this form, you agree to our privacy policy and terms of service.
+                By submitting this form, you agree to our{" "}
+                <Link href="/privacy" className="text-blue-500 underline hover:text-blue-600">Privacy Policy</Link>
+                {" "}and{" "}
+                <Link href="/terms" className="text-blue-500 underline hover:text-blue-600">Terms of Service</Link>
+                . SMS communication is governed by our{" "}
+                <Link href="/sms" className="text-blue-500 underline hover:text-blue-600">SMS Terms</Link>
+                {" "}— you must check the box above to opt into SMS replies.
               </p>
             </form>
           </motion.div>
